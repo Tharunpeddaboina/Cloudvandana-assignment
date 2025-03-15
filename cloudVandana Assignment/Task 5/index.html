@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link  rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Image Slider</h2>
+  <div id="slider-container">
+    <img id="slider" src="" alt="Image Slider">
+
+  </div>
+  <div class="button-container">
+    <button onclick="prevImage()"> prev</button>
+    <button onclick="nextImage()"> Next</button>
+  </div>
+</body>
+<script>
+    const images=[ "https://th.bing.com/th/id/OIP.FDKR1JSKm_LZbZKR1Mf-4QHaEw?w=267&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", 
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Cricket_picture.jpg/320px-Cricket_picture.jpg", 
+           "https://images.pexels.com/photos/50704/car-race-ferrari-racing-car-pirelli-50704.jpeg?cs=srgb&dl=road-blue-car-50704.jpg&fm=jpg", ];
+    let currentIndex=0;
+    const Slider = document.getElementById("slider");
+    function updateImage(){
+        slider .src=images[currentIndex];
+    }
+    function nextImage(){
+        currentIndex =(currentIndex+1)%images.length;
+        updateImage();
+    }
+    function prevImage(){
+        currentIndex =(currentIndex-1+images.length)%images.length;
+        updateImage();
+    }
+    updateImage();
+</script>
+</html>
